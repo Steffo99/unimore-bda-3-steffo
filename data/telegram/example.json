@@ -1,0 +1,37 @@
+{
+ "name": "Esempio",
+ "type": "private_group",
+ "id": 660884870,
+ "messages": [
+  {
+   "id": 1531670,
+   "type": "service",
+   "date": "2022-12-02T14:49:03",
+   "date_unixtime": "1669988943",
+   "actor": "Steffo",
+   "actor_id": "user25167391",
+   "action": "create_group",
+   "title": "Esempio",
+   "members": [
+    "Steffo"
+   ],
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 1531671,
+   "type": "message",
+   "date": "2022-12-02T14:49:11",
+   "date_unixtime": "1669988951",
+   "from": "Steffo",
+   "from_id": "user25167391",
+   "text": "Questo è un messaggio di esempio.",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Questo è un messaggio di esempio."
+    }
+   ]
+  }
+ ]
+}
