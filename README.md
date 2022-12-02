@@ -1,1 +1,1 @@
-# [:magnifying_glass_tilted_right: View Notebook](DOCUMENT.ipynb)
+# [:mag_right: View Notebook](DOCUMENT.ipynb)
