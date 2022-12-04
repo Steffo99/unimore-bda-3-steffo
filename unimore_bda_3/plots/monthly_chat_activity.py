@@ -36,7 +36,7 @@ def plot(name: str, *dfs: pd.DataFrame) -> tuple[plt.Figure, plt.Axes, list[mplc
     axs.xaxis.set_minor_locator(loc_month)
     axs.xaxis.set_minor_formatter(tick.NullFormatter())
 
-    axs.yaxis.set_label("Positivi")
+    axs.yaxis.set_label("Eventi")
     axs.yaxis.set_major_locator(tick.AutoLocator())
     axs.yaxis.set_minor_locator(tick.AutoMinorLocator())
     axs.yaxis.set_major_formatter(form_num)
