@@ -1,5 +1,6 @@
 from unimore_bda_3.prelude import *
 import json
+import pathlib
 
 
 def anonymize(fd: t.IO[str]) -> t.Iterable[str]:
@@ -38,6 +39,35 @@ def load(fd: t.IO[bytes]) -> pd.DataFrame:
     del dataframe[0]
     dataframe = dataframe.set_index("date")
     return dataframe
+
+
+def try_load(filename: str) -> pd.DataFrame:
+    """
+    Import a :class:`list` stored by :func:`store_telegramanon` into a :class:`pandas.DataFrame`, with the following priorities:
+
+    * if a anonymized data file is detected, :func:`load` it
+    * if a non-anonymized data file is detected, :func:`anonymize`, :func:`store`, and then :func:`load` it
+    * otherwise, raise an error
+
+    :param filename: The name of the file to load, including its extension.
+    :return: The imported :class:`pandas.DataFrame`.
+    """
+
+    data_path = pathlib.Path("data")
+    tg_path = data_path.joinpath("telegram").joinpath(filename)
+    anon_path = data_path.joinpath("telegramanon").joinpath(filename)
+
+    if anon_path.exists():
+        with open(anon_path) as anon_file:
+            return load(anon_file)
+    else:
+        if tg_path.exists():
+            with open(tg_path) as tg_file, open(anon_path, "w") as anon_file:
+                store(anonymize(tg_file), anon_file)
+            with open(anon_path) as anon_file:
+                return load(anon_file)
+        else:
+            raise FileNotFoundError(filename)
 
 
 __all__ = (

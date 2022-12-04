@@ -6,9 +6,10 @@ This package is to be imported in all other packages with a wildcard import::
 """
 
 import typing as t
-import matplotlib as mpl
-import matplotlib.figure as mplf
-import matplotlib.axes as mpla
+import matplotlib.ticker as tick
+import matplotlib.pyplot as plt
+import matplotlib.dates as mpld
+import matplotlib.container as mplc
 import numpy as np
 import scipy as sp
 import pandas as pd
@@ -17,9 +18,10 @@ from datetime import datetime
 
 __all__ = (
     "t",
-    "mpl",
-    "mplf",
-    "mpla",
+    "tick",
+    "plt",
+    "mplc",
+    "mpld",
     "np",
     "sp",
     "pd",

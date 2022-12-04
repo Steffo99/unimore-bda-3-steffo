@@ -1,6 +1,6 @@
-import covid19
-import gtrends
-import telegram
+from . import covid19
+from . import gtrends
+from . import telegram
 
 
 __all__ = (

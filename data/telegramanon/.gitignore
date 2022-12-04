@@ -1,0 +1,6 @@
+*
+!.gitignore
+!example.json
+!ryg-*
+!unimore-*
+!README.md
