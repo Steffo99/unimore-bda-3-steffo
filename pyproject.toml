@@ -11,6 +11,7 @@ numpy = "^1.23.5"
 scipy = "^1.9.3"
 pandas = "^1.5.2"
 matplotlib = "^3.6.2"
+sortedcontainers = "^2.4.0"
 
 [tool.poetry.group.dev.dependencies]
 sphinx = "^5.3.0"

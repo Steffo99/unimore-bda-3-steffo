@@ -1,5 +1,4 @@
 from unimore_bda_3.prelude import *
-import functools
 
 
 def plot(name: str, *dfs: pd.DataFrame) -> tuple[plt.Figure, plt.Axes, list[mplc.BarContainer]]:
@@ -9,8 +8,8 @@ def plot(name: str, *dfs: pd.DataFrame) -> tuple[plt.Figure, plt.Axes, list[mplc
         return df.groupby(by=pd.Grouper(freq="M")).size().to_frame(n)
 
     # noinspection PyTypeChecker
-    monthly_counts_frames: list[pd.DataFrame] = list(map(aggregate_df, enumerate(dfs)))
-    main_frame: pd.DataFrame = monthly_counts_frames[0].join(monthly_counts_frames[1:], how="outer").fillna(0)
+    monthly_counts_frames: list[pd.DataFrame] = [aggregate_df(t) for t in enumerate(dfs)]
+    main_frame: pd.DataFrame = utils.join_frames(*monthly_counts_frames).fillna(0)
 
     fig, axs = plt.subplots()
     fig: plt.Figure
